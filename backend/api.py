@@ -1,21 +1,12 @@
 from fastapi import FastAPI, APIRouter
 from utils.constants import DATA_PATH, MODELS_PATH
-from pydantic import BaseModel, Field
+from backend.data_processing import PredictionOutput, IrisInput
 import pandas as pd
 import joblib
 
 df = pd.read_csv(DATA_PATH/ "IRIS.csv")
 router = APIRouter(prefix = "/api/iris/v1")
 app = FastAPI()
-
-class IrisInput(BaseModel):
-    sepal_length: float = Field(gt=4, lt=8.5)
-    sepal_width: float = Field(gt=1.8, lt=5)
-    petal_length: float = Field(gt=0.8, lt=7.5)
-    petal_width: float = Field(gt=0, lt=3)
-
-class PredictionOutput(BaseModel):
-    predicted_flower: str
 
 
 @router.get("")
