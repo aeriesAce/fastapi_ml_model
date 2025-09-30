@@ -1,6 +1,6 @@
 import streamlit as st
 import httpx
-from constants import ASSETS_PATH
+from utils.constants import ASSETS_PATH
 
 url = "http://127.0.0.1:8000/api/iris/v1/predict"
 

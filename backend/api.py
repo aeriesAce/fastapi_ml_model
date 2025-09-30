@@ -1,5 +1,5 @@
 from fastapi import FastAPI, APIRouter
-from constants import DATA_PATH, MODELS_PATH
+from utils.constants import DATA_PATH, MODELS_PATH
 from pydantic import BaseModel, Field
 import pandas as pd
 import joblib
